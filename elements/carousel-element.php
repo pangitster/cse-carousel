@@ -16,16 +16,16 @@
 
 <?php
 
-class CSL_Template_Name extends Cornerstone_Element_Base {
+class CS_Carousel extends Cornerstone_Element_Base {
 
   public function data() {
     return array(
-      'name'        => 'csl-template-name',
-      'title'       => __( 'Template Name', csl18n() ),
+      'name'        => 'cs-carousel',
+      'title'       => __( 'Carousel', csl18n() ),
       'section'     => 'content',
-      'description' => __( 'Template Name description.', csl18n() ),
+      'description' => __( 'Carousel description.', csl18n() ),
       'supports'    => array( 'id', 'class', 'style' ),
-      'childType'   => 'csl-template-name-item',
+      'childType'   => 'cs-carousel-item',
       'renderChild' => true
     );
   }
@@ -35,14 +35,14 @@ class CSL_Template_Name extends Cornerstone_Element_Base {
     $this->addControl(
       'elements', // control name
       'sortable', // control type
-      __( 'Template Name Items', csl18n() ), // Message
-      __( 'Add a new item to your Template Name.', csl18n() ), // Tooltip text
+      __( 'Carousel Items', csl18n() ), // Message
+      __( 'Add a new item to your Carousel.', csl18n() ), // Tooltip text
       array(
-        array( 'title' => __( 'Template Name 1', csl18n() ), 'content' => __( 'Add some content to your Template Name here.', csl18n() ) ),
-        array( 'title' => __( 'Template Name 2', csl18n() ), 'content' => __( 'Add some content to your Template Name here.', csl18n() ) )
+        array( 'title' => __( 'Carousel 1', csl18n() ), 'content' => __( 'Add some content to your Carousel here.', csl18n() ) ),
+        array( 'title' => __( 'Carousel 2', csl18n() ), 'content' => __( 'Add some content to your Carousel here.', csl18n() ) )
       ), // placeholder content or default items
       array(
-        'newTitle' => __( 'Template Name %s', csl18n() ),
+        'newTitle' => __( 'Carousel %s', csl18n() ),
         'floor'    => 1
       ) // new item format
     );
@@ -68,12 +68,12 @@ class CSL_Template_Name extends Cornerstone_Element_Base {
 
       $e['parent_id'] = ( $link_items == 'true' && $id != '' ) ? $id : '';
 
-      $contents .= '[csl_template_name_item title="' . $e['title'] . '" ';
-      $contents .= 'open="' . $e['open']  . '"' . $item_extra . ']' . $e['content'] . '[/csl_template_name_item]';
+      $contents .= '[CS_Carousel_item title="' . $e['title'] . '" ';
+      $contents .= 'open="' . $e['open']  . '"' . $item_extra . ']' . $e['content'] . '[/CS_Carousel_item]';
 
     }
 
-    $shortcode = "[csl_template_name{$extra}]{$contents}[/csl_template_name]";
+    $shortcode = "[CS_Carousel{$extra}]{$contents}[/CS_Carousel]";
 
     return $shortcode;
 
