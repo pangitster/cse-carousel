@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Cornerstone: Carousel
+Plugin Name: Cornerstone Carousel
 Plugin URI:  http://
 Description: This is a carousel extension element for Cornerstone plugin.
 Version:     0.1
@@ -16,14 +16,36 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/*
- * => Enqueue Scripts
- * ---------------------------------------------------------------------------*/
-function cs_carousel_scripts() {
-	wp_enqueue_script( 'cs-carousel', plugins_url( '/assets/js/custom.js', __FILE__ ), array( 'jquery' ), null, true );
-	wp_enqueue_style( 'cs-carousel', plugins_url( '/assets/css/custom.css', __FILE__ ), array(), '1.0' );
+//
+// Enqueue Scripts
+// =============================================================================
+function cse_carousel_scripts() {
+	//wp_enqueue_script( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'cse-carousel', plugins_url( '/assets/js/cse-carousel-min.js', __FILE__ ), array( 'jquery' ), null, true );
+	
+	//wp_enqueue_style( 'cse-carousel', plugins_url( '/assets/css/cse-carousel.css', __FILE__ ), array(), '1.0' );
+	wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css' );
+	// Add the slick-theme.css if you want default styling
+	wp_enqueue_style( 'slick-theme', '//cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css' );
 }
-//add_action( 'wp_enqueue_scripts', 'cs_carousel_scripts', 100 );
+add_action( 'wp_enqueue_scripts', 'cse_carousel_scripts', 100 );
+
+//
+// Slick Attribute Generator
+// =============================================================================
+
+function cse_slick_params( $params = array() ) {
+
+  $data = '';
+
+  if ( ! empty( $params ) ) {
+    $params_json = json_encode( $params );
+    $data .= " data-slick='" . $params_json ."'";
+  }
+
+  return $data;
+
+}
 
 
 /*
@@ -34,10 +56,10 @@ require_once('shortcodes/shortcodes.php');
 /*
  * => ADD CUSTOM ELEMENTS TO CORNERSTONE
  * ---------------------------------------------------------------------------*/
-function cs_carousel_elements() {
+function cse_carousel_elements() {
 	require_once( 'elements/carousel-element.php' );
 	require_once( 'elements/carousel-element-item.php' );
-  cornerstone_add_element( 'CS_Carousel' );
-  cornerstone_add_element( 'CS_Carousel_Item' );
+  cornerstone_add_element( 'CSE_Carousel' );
+  cornerstone_add_element( 'CSE_Carousel_Item' );
 }
-add_action( 'cornerstone_load_elements', 'cs_carousel_elements' );
+add_action( 'cornerstone_load_elements', 'cse_carousel_elements' );

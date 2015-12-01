@@ -1,0 +1,346 @@
+// =============================================================================
+// SCSS/SITE/INC/MIXINS/_CSS3.SCSS
+// -----------------------------------------------------------------------------
+// Various CSS3 mixins along with some supplemental mixins for particular
+// styles such as opacity.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Box Shadow
+//   02. Box Sizing
+//   03. Animations
+//   04. Transitions
+//   05. Transformations
+//       a. Rotate
+//       b. Rotate X
+//       c. Rotate Y
+//       d. Scale
+//       e. Translate
+//       f. Translate 3D
+//       g. Skew
+//       h. Transform Style
+//   06. Backface Visibility
+//   07. Perspective
+//   08. User Select
+//   09. Resize Anything
+//   10. Content Columns
+//   11. Optional Hypenation
+//   12. Opacity
+// =============================================================================
+
+// Box Shadow
+// =============================================================================
+
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+
+
+// Box Sizing
+// =============================================================================
+
+@mixin box-sizing($boxModel) {
+  -webkit-box-sizing: $boxModel;
+     -moz-box-sizing: $boxModel;
+          box-sizing: $boxModel;
+}
+
+
+
+// Animations
+// =============================================================================
+
+@mixin animate($animation) {
+  -webkit-animation: $animation;
+     -moz-animation: $animation;
+       -o-animation: $animation;
+          animation: $animation;
+}
+
+
+
+// Transitions
+// =============================================================================
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+          transition: $transition;
+}
+
+
+// CSS3 Transitions
+// =============================================================================
+
+$easeInQuad:     cubic-bezier(0.550, 0.085, 0.680, 0.530)  !default;
+$easeInCubic:    cubic-bezier(0.550, 0.055, 0.675, 0.190)  !default;
+$easeInQuart:    cubic-bezier(0.895, 0.030, 0.685, 0.220)  !default;
+$easeInQuint:    cubic-bezier(0.755, 0.050, 0.855, 0.060)  !default;
+$easeInSine:     cubic-bezier(0.470, 0.000, 0.745, 0.715)  !default;
+$easeInExpo:     cubic-bezier(0.950, 0.050, 0.795, 0.035)  !default;
+$easeInCirc:     cubic-bezier(0.600, 0.040, 0.980, 0.335)  !default;
+$easeInBack:     cubic-bezier(0.600, -0.280, 0.735, 0.045) !default;
+
+$easeOutQuad:     cubic-bezier(0.250, 0.460, 0.450, 0.940) !default;
+$easeOutCubic:    cubic-bezier(0.215, 0.610, 0.355, 1.000) !default;
+$easeOutQuart:    cubic-bezier(0.165, 0.840, 0.440, 1.000) !default;
+$easeOutQuint:    cubic-bezier(0.230, 1.000, 0.320, 1.000) !default;
+$easeOutSine:     cubic-bezier(0.390, 0.575, 0.565, 1.000) !default;
+$easeOutExpo:     cubic-bezier(0.190, 1.000, 0.220, 1.000) !default;
+$easeOutCirc:     cubic-bezier(0.075, 0.820, 0.165, 1.000) !default;
+$easeOutBack:     cubic-bezier(0.175, 0.885, 0.320, 1.275) !default;
+
+$easeInOutQuad:     cubic-bezier(0.455, 0.030, 0.515, 0.955)  !default;
+$easeInOutCubic:    cubic-bezier(0.645, 0.045, 0.355, 1.000)  !default;
+$easeInOutQuart:    cubic-bezier(0.770, 0.000, 0.175, 1.000)  !default;
+$easeInOutQuint:    cubic-bezier(0.860, 0.000, 0.070, 1.000)  !default;
+$easeInOutSine:     cubic-bezier(0.445, 0.050, 0.550, 0.950)  !default;
+$easeInOutExpo:     cubic-bezier(1.000, 0.000, 0.000, 1.000)  !default;
+$easeInOutCirc:     cubic-bezier(0.785, 0.135, 0.150, 0.860)  !default;
+$easeInOutBack:     cubic-bezier(0.680, -0.550, 0.265, 1.550) !default;
+
+
+
+// Transformations
+// =============================================================================
+
+//
+// Rotate.
+//
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+
+//
+// Rotate X.
+//
+
+@mixin rotate-x($degrees) {
+  -webkit-transform: rotateX($degrees);
+      -ms-transform: rotateX($degrees);
+          transform: rotateX($degrees);
+}
+
+
+//
+// Rotate Y.
+//
+
+@mixin rotate-y($degrees) {
+  -webkit-transform: rotateY($degrees);
+      -ms-transform: rotateY($degrees);
+          transform: rotateY($degrees);
+}
+
+
+//
+// Scale.
+//
+
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+      -ms-transform: scale($ratio);
+          transform: scale($ratio);
+}
+
+
+//
+// Translate.
+//
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+      -ms-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+
+
+//
+// Translate 3D.
+//
+
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+      -ms-transform: translate3d($x, $y, $z);
+          transform: translate3d($x, $y, $z);
+}
+
+
+//
+// Skew.
+//
+
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+      -ms-transform: skew($x, $y);
+          transform: skew($x, $y);
+}
+
+
+//
+// Transform style.
+//
+
+@mixin transform-style($style) {
+  -webkit-transform-style: $style;
+          transform-style: $style;
+}
+
+
+
+// Backface Visibility
+// =============================================================================
+
+@mixin backface-visibility($visibility){
+  -webkit-backface-visibility: $visibility;
+          backface-visibility: $visibility;
+}
+
+
+
+// Perspective
+// =============================================================================
+
+@mixin perspective($value) {
+  -webkit-perspective: $value;
+      -ms-perspective: $value;
+          perspective: $value;
+}
+
+
+
+// User Select
+// =============================================================================
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+
+
+// Resize Anything
+// =============================================================================
+
+//
+// 1. Options: 'horizontal', 'vertical', or 'both'.
+// 2. Safari fix.
+//
+
+@mixin resizable($direction) {
+  resize: $direction; // 1
+  overflow: auto; // 2
+}
+
+
+
+// Content Columns
+// =============================================================================
+
+@mixin content-columns($columnCount: 2, $columnGap: 3em, $columnRule: 1px solid #e5e5e5) {
+  -webkit-column-count: $columnCount;
+     -moz-column-count: $columnCount;
+          column-count: $columnCount;
+  -webkit-column-gap: $columnGap;
+     -moz-column-gap: $columnGap;
+          column-gap: $columnGap;
+  -webkit-column-rule: $columnRule;
+     -moz-column-rule: $columnRule;
+          column-rule: $columnRule;
+}
+
+
+
+// Optional hypenation
+// =============================================================================
+
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+       -o-hyphens: $mode;
+          hyphens: $mode;
+}
+
+
+
+// Opacity
+// =============================================================================
+
+@mixin opacity($opacity: 0.5) {
+  opacity: $opacity;
+}
+
+
+// =============================================================================
+// =============================================================================
+// =============================================================================
+
+//
+// Font Awesome.
+//
+
+@mixin font-awesome() {
+  font-family: "FontAwesome" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  text-decoration: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Font Size
+// =============================================================================
+
+//
+// Provides rem unit sizing with a px fallback.
+// Must set html font-size to 62.5% since base 10 is used for px fallback.
+// 1. $sizeValue of 1.6 results in 16px and 1.6rem.
+//
+
+@mixin font-size($sizeValue: 1.6) { // 1
+  font-size: ($sizeValue * 10) + px;
+  // font-size: $sizeValue + rem;
+}
+
+// Text Overflow
+// =============================================================================
+
+//
+// Requires 'inline-block' or 'block' for proper styling.
+//
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// Clearfix
+// =============================================================================
+
+//
+// For clearing floats like a boss.
+//
+
+@mixin clearfix() {  
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  
+  &:after {
+    clear: both;
+  }
+}
