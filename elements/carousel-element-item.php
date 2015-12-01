@@ -16,11 +16,11 @@
 
 <?php
 
-class CS_Carousel_Item extends Cornerstone_Element_Base {
+class CSE_Carousel_Item extends Cornerstone_Element_Base {
 
   public function data() {
     return array(
-      'name'        => 'cs-carousel-item',
+      'name'        => 'cse_carousel_item',
       'title'       => __( 'Carousel Item', csl18n() ),
       'section'     => '_content',
       'description' => __( 'Carousel Item description.', csl18n() ),
