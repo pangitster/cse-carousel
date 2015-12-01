@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Cornerstone Carousel
-Plugin URI:  http://
+Plugin URI:  http://www.pangitster.com/downloads/cornerstone-carousel/
 Description: This is a carousel extension element for Cornerstone plugin.
-Version:     0.1
-Author:      Lenoriquep
-Author URI:  http://
-Author Email: len@len.com
+Version:     0.2
+Author:      PangitSter
+Author URI:  http://www.pangitster.com
+Author Email: pangitster@gmail.com
 Text Domain: __x__
 */
 
