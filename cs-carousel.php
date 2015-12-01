@@ -3,7 +3,7 @@
 Plugin Name: Cornerstone Carousel
 Plugin URI:  http://www.pangitster.com/downloads/cornerstone-carousel/
 Description: This is a carousel extension element for Cornerstone plugin.
-Version:     0.2
+Version:     0.21
 Author:      PangitSter
 Author URI:  http://www.pangitster.com
 Author Email: pangitster@gmail.com
